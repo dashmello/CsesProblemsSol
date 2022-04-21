@@ -24,23 +24,15 @@ int main(){
     {
         int x;
         cin >> x;
-        if(s.empty()){
-            cout << 0 <<" ";
-            s.push({x,i});
+        while(!s.empty() && x <= s.top().first){
+            s.pop();
         }
+        if(!s.empty())
+            cout << s.top().second << " ";
         else{
-            while((!s.empty()) && x<=s.top().first  )
-                s.pop();
-            if(s.empty()){
-                cout << 0 <<" ";
-                s.push({x,i});
-            }
-            else{
-            cout << s.top().second<<" ";
-            s.push({x,i});
-            }
+            cout << 0 <<" ";
         }
-
+        s.push({x, i});
     }
 
 }
